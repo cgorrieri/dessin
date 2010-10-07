@@ -1,0 +1,11 @@
+<div class="<%= color %>_block">
+  <div class="title"><%= folder.name %> (<%= folder.categorie %>)<span style="float:right;margin-right:10px;">auteur : <%= folder.user.pseudo %> </span></div>
+  <div class="content">
+    <% folder.drawings.limit(6).order("created_at desc").each do |m| %>
+      <%= image_tag m.url(:thumb) %>
+    <% end %>
+  </div>
+</div>
+<div class="<%= color %>_block_footer">
+  <div class="block"><div class="link"><%= link_to 'Show', folder %></div></div>
+</div>

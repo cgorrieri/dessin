@@ -1,0 +1,25 @@
+#header
+{
+    height:90px;
+    margin-bottom:10px;
+}
+
+#header div.logo
+{
+    height:90px;
+    float:left;
+    background:left bottom url(/images/design/application/logo_480x90.png) no-repeat;
+    width:480px;
+}
+
+#header div.info_compte
+{
+    height:90px;
+    float:right;
+    width:480px;
+}
+
+#header a
+{
+    color:#ffffff;
+}

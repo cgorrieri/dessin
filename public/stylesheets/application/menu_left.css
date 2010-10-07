@@ -1,0 +1,16 @@
+#menu_left {
+    width:21%;
+    float:left;
+}
+
+#menu_left ul {
+    padding-left:15px;
+    margin:0px;
+}
+
+#menu_left a {
+    text-decoration:none;
+}
+#menu_left a:hover {
+    text-decoration:underline;
+}

@@ -1,0 +1,74 @@
+div.white_block_without_corner,
+div.white_block
+{
+    background:#ffffff;
+    border:2px solid #8c8c8c;
+}
+
+div.white_block
+{
+    border-bottom:none;
+}
+
+div.white_block_without_corner a,
+div.white_block a,
+div.white_block_footer a
+{
+    color:#007471;
+}
+
+div.white_block_without_corner div.title,
+div.white_block div.title
+{
+    color:#007471;
+    background:url(/images/design/application/white_block/fond_rayure.png);
+}
+
+div.white_block_without_corner div.content,
+div.white_block div.content
+{
+    color:#00918d;
+}
+
+div.white_block_without_corner input[type="submit"],
+div.white_block input[type="submit"]
+{
+    color:#ffffff;
+    background:#00918d;
+}
+
+div.white_block_without_corner input[type="submit"]:hover,
+div.white_block input[type="submit"]:hover
+{
+    background:#007471;
+}
+
+div.white_block_without_corner div.field_with_errors label,
+div.white_block div.field_with_errors label
+{
+    font-weight:bolder;
+}
+
+div.white_block_without_corner div.field_with_errors input,
+div.white_block_without_corner div.field_with_errors select,
+div.white_block_without_corner div.field_with_errors textarea,
+div.white_block div.field_with_errors input,
+div.white_block div.field_with_errors select,
+div.white_block div.field_with_errors textarea
+{
+    border:2px solid #a4005d;
+}
+
+div.white_block_footer
+{
+    background:right url(/images/design/application/white_block/corner.png) no-repeat;
+}
+
+div.white_block_footer div.block
+{
+    border:2px solid #8c8c8c;
+    background:#ffffff;
+    border-top:none;
+    border-right:none;
+    color:#00918d;
+}

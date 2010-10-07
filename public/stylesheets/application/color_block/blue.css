@@ -1,0 +1,74 @@
+div.blue_block_without_corner,
+div.blue_block
+{
+    background:#4bb1af ;
+    border:2px solid #005250;
+}
+
+div.blue_block
+{
+    border-bottom:none;
+}
+
+div.blue_block_without_corner a,
+div.blue_block a,
+div.blue_block_footer a
+{
+    color:#ffffff;
+}
+
+div.blue_block_without_corner div.title,
+div.blue_block div.title
+{
+    color:#ffffff;
+    background:url(/images/design/application/blue_block/fond_rayure.png);
+}
+
+div.blue_block_without_corner div.content,
+div.blue_block div.content
+{
+    color:#ffffff;
+}
+
+div.blue_block_without_corner input[type="submit"],
+div.blue_block input[type="submit"]
+{
+    color:div.ffffff;
+    background:#00918d;
+}
+
+div.blue_block_without_corner input[type="submit"]:hover,
+div.blue_block input[type="submit"]:hover
+{
+    background:#007471;
+}
+
+div.blue_block_without_corner div.field_with_errors label,
+div.blue_block div.field_with_errors label
+{
+    font-weight:bolder;
+}
+
+div.blue_block_without_corner div.field_with_errors input,
+div.blue_block_without_corner div.field_with_errors select,
+div.blue_block_without_corner div.field_with_errors textarea,
+div.blue_block div.field_with_errors input,
+div.blue_block div.field_with_errors select,
+div.blue_block div.field_with_errors textarea
+{
+    border:2px solid #a4005d;
+}
+
+div.blue_block_footer
+{
+    background:right url(/images/design/application/blue_block/corner.png) no-repeat;
+}
+
+div.blue_block_footer div.block
+{
+    background:#4bb1af ;
+    border:2px solid #005250;
+    border-top:none;
+    border-right:none;
+    color:#ffffff;
+}

@@ -1,0 +1,14 @@
+<div class="<%= color %>_block_without_corner">
+  <div class="title">
+    <%= user.pseudo %>
+    <span style="float:right;margin-right:10px">
+      <%= user.folders.size %> dossier
+    </span>
+  </div>
+  <div class="content">
+    <div class="link">
+      <%= link_to 'Show', user_path(:id => user.id) %> |
+      <%= link_to 'send message', '' %>
+    </div>
+  </div>
+</div>

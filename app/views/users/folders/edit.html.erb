@@ -1,0 +1,34 @@
+<div class="white_block">
+  <div class="title">Dossier : <%= @folder.name %></div>
+  <div class="content">
+    <%= @folder.description.size > 0 ? @folder.description : "Pas de description" %>
+  </div>
+</div>
+<div class="white_block_footer">
+  <div class="block"><%= link_to 'Edit', edit_folder_path(@folder) %> | <%= link_to 'Destroy', @folder, :method => :delete %></div>
+</div>
+
+<div class="blue_block_without_corner">
+  <div class="title">Ajouter une image</div>
+  <div class="content">
+    <%= form_for(@media, :html => { :multipart => true } , :url =>{:controller => "folders", :action => "add_media"}, :method => "post") do |f| %>
+      <% if @media.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@media.errors.count, "error") %> prohibited this folder from being saved:</h2>
+          <ul>
+            <% @media.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field image">
+        <%= f.label :image %> <%= f.file_field :image %>
+        <%= f.submit "ajouter" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render :partial => "users/folders/drawing", :collection => @drawings %>

@@ -1,0 +1,33 @@
+div.drawing {
+    width:auto;
+    float:left;
+    position:relative;
+    background:#ffffff;
+    margin:0 2px 5px 3px;
+}
+
+div.drawing a {
+    text-decoration:none;
+}
+
+div.drawing img {
+    border:2px solid #ffffff;
+}
+
+div.drawing a.destroy {
+    display:block;
+    text-align:center;
+    height:20px;
+    line-height:20px;
+    padding-bottom:2px;
+    padding-right:3px;
+}
+div.drawing a.destroy:hover {
+    font-weight:bolder;
+}
+div.drawing a.destroy.white {
+    color:#007471;
+}
+div.drawing a.destroy.pink {
+    color:#E40583;
+}

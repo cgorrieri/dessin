@@ -1,0 +1,38 @@
+body
+{
+    background:#ffffff url(/images/design/application/background.png) repeat-x;
+    margin:0px;
+    color:#ffffff;
+}
+
+#application
+{
+    width:1000px;
+    margin:auto;
+    background:#053232;
+    padding:10px 20px;
+}
+
+#clear_float
+{
+    clear:both;
+}
+
+#notice
+{
+    border:2px solid green;
+    color:#ffffff;
+    background:greenyellow;
+}
+
+#alert
+{
+    border:2px solid red;
+    color:#ffffff;
+    background:rosybrown;
+}
+
+div.field_with_errors
+{
+    display:inline-block;
+}

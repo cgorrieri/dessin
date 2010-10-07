@@ -1,0 +1,22 @@
+<div class="white_block_without_corner">
+  <div class="title">Filtres de recheche</div>
+  <div class="content">
+    <%= form_for search, :url => folders_path do |f| %>
+      <div class="search_block search_name_contains">
+        <%= f.label :name_contains %>
+        <%= f.text_field :name_contains %>
+      </div>
+      <div class="search_block search_user_pseudo_contains">
+        <%= f.label :user_pseudo_contains %>
+        <%= f.text_field :user_pseudo_contains %>
+      </div>
+      <div class="search_block search_categorie_contains">
+        <%= f.label :categorie_eq %>
+        <%= f.select :categorie_eq, {""=>"","dessin"=>"dessin","peinture"=>"peinture"} %>
+      </div>
+      <div class="search_block search_buttons">
+        <%= f.submit "rechercher" %>
+      </div>
+    <% end %>
+  </div>
+</div>

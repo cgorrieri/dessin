@@ -1,0 +1,29 @@
+<div id="create_folder">
+  <%= form_for(@folder , :url =>{:controller => "users", :action => "create_folder"}) do |f| %>
+    <% if @folder.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@folder.errors.count, "error") %> prohibited this folder from being saved:</h2>
+        <ul>
+          <% @folder.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field name">
+      <%= f.label :name %> <%= f.text_field :name %>
+    </div>
+    <div class="field categorie">
+      <%= f.label :categorie %> <%= f.select :categorie, [['dessin', 'dessin'], ['peinture', 'peinture']] %>
+    </div>
+    <div class="actions submit">
+      <%= f.submit %>
+    </div>
+    <div id="clear_float"></div>
+    <div class="field description">
+      <%= f.label :description %> 
+      <%= f.text_area :description %>
+    </div>
+  <% end %>
+</div>

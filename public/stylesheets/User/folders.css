@@ -1,0 +1,51 @@
+#create_folder label
+{
+    display:inline-block;
+    width:80px;
+}
+
+#create_folder input[type="text"]
+{
+    width:300px;
+    margin:0px
+}
+
+#create_folder select
+{
+    width:200px;
+    height:20px;
+}
+
+#create_folder textarea
+{
+    height:50px;
+    width:883px;
+    margin:0px;
+}
+
+#create_folder div.name,
+#create_folder div.categorie
+{
+    margin-right:30px;
+    margin-bottom:10px;
+}
+
+#create_folder div.name,
+#create_folder div.categorie
+{
+    float:left;
+}
+
+#create_folder div.submit
+{
+    float:right;
+}
+
+#create_folder div.description
+{
+    
+}
+#create_folder div.description label
+{
+    vertical-align:top;
+}

@@ -1,0 +1,14 @@
+<div class="white_block_without_corner">
+  <div class="title">Filtres de recheche</div>
+  <div class="content">
+    <%= form_for search, :url => '/les-membres' do |f| %>
+      <div class="search_block search_user_pseudo_contains">
+        <%= f.label :pseudo_contains %>
+        <%= f.text_field :pseudo_contains %>
+      </div>
+      <div class="search_block search_buttons">
+        <%= f.submit "rechercher" %>
+      </div>
+    <% end %>
+  </div>
+</div>

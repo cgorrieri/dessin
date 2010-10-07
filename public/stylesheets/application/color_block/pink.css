@@ -1,0 +1,74 @@
+div.pink_block_without_corner,
+div.pink_block
+{
+    background : #e40583 ;
+    border : 2px solid #69003b ;
+}
+
+div.pink_block
+{
+    border-bottom:none;
+}
+
+div.pink_block_without_corner a,
+div.pink_block a,
+div.pink_block_footer a
+{
+    color:#ffffff;
+}
+
+div.pink_block_without_corner div.title,
+div.pink_block div.title
+{
+    color:#ffffff;
+    background:url(/images/design/application/pink_block/fond_rayure.png);
+}
+
+div.pink_block_without_corner div.content,
+div.pink_block div.content
+{
+    color:#ebebeb;
+}
+
+div.pink_block_without_corner input[type="submit"],
+div.pink_block input[type="submit"]
+{
+    color:#e3017f;
+    background:#ffffff;
+}
+
+div.pink_block_without_corner input[type="submit"]:hover,
+div.pink_block input[type="submit"]:hover
+{
+    background:#4bb1af;
+}
+
+div.pink_block_without_corner div.field_with_errors label,
+div.pink_block div.field_with_errors label
+{
+    font-weight:bolder;
+}
+
+div.pink_block_without_corner div.field_with_errors input,
+div.pink_block_without_corner div.field_with_errors select,
+div.pink_block_without_corner div.field_with_errors textarea,
+div.pink_block div.field_with_errors input,
+div.pink_block div.field_with_errors select,
+div.pink_block div.field_with_errors textarea
+{
+    border:2px solid #ffffff;
+}
+
+div.pink_block_footer
+{
+    background:right url(/images/design/application/pink_block/corner.png) no-repeat;
+}
+
+div.pink_block_footer div.block
+{
+    background:#e40583;
+    border:2px solid #69003b;
+    border-top:none;
+    border-right:none;
+    color:#ffffff;
+}

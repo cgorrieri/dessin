@@ -1,0 +1,23 @@
+<h1>Listing forum_parts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @forum_parts.each do |forum_part| %>
+  <tr>
+    <td><%= forum_part.name %></td>
+    <td><%= link_to 'Show', forum_part %></td>
+    <td><%= link_to 'Edit', edit_forum_part_path(forum_part) %></td>
+    <td><%= link_to 'Destroy', forum_part, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Forum part', new_forum_part_path %>
