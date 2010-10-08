@@ -14,12 +14,7 @@ class User < ActiveRecord::Base
 
   SEX = {'Non dit' => 'NC', 'Homme' => 'H', 'Femme' => 'F'}
 
-  has_and_belongs_to_many :friends,
-    :class_name => 'User',
-    :join_table => 'friends',
-    :foreign_key => 'friend_id',
-    :association_foreign_key => 'user_id'
-
+  has_many :friends, :foreign_key => 'user_id'
 
   has_attached_file :avatar,
     :styles => {:thumb => "150x150#"},

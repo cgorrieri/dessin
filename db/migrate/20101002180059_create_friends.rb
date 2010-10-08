@@ -1,8 +1,10 @@
 class CreateFriends < ActiveRecord::Migration
   def self.up
-    create_table :friends, :id => false do |t|
-      t.integer :user_id, :primary_key => true
-      t.integer :friend_id, :primary_key => true
+    create_table :friends do |t|
+      t.integer :user_id
+      t.integer :fuser_id
+      t.integer :fuser_update, :default => 0
+      t.text :fuser_update_tags
       t.timestamps
     end
   end

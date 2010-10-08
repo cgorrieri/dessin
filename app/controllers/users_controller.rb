@@ -51,4 +51,48 @@ class UsersController < ApplicationController
   def friends
     @friends = current_user.friends
   end
+
+  def add_friend
+    if params[:id]
+      if friend = User.find_by_id(params[:id])
+        if friend.id != current_user.id
+          unless Friend.find_by_user_id_and_fuser_id(current_user.id, friend.id)
+            friend_record1 = Friend.new(:user => current_user, :fuser => friend)
+            friend_record2 = Friend.new(:user => friend, :fuser => current_user)
+            if friend_record1.save and friend_record2.save
+              flash[:notice] = "vous etes maintenant amis avec #{friend.pseudo}"
+            else
+              flash[:alert] = "erreur lors de la sauvegarde"
+            end
+          else
+            flash[:alert] = "vous etes déjà amis avec ce membre"
+          end
+        else
+          flash[:alert] = "Vous ne pouvais pas être amis avec vous même"
+        end
+      else
+        flash[:alert] = "erreur ce membre n'existe pas"
+      end
+    end
+    redirect_to :friends_user
+  end
+
+  def remove_friend
+    if fuser = User.find_by_id(params[:id])
+      if f_user = Friend.find_by_user_id_and_fuser_id(current_user.id, fuser.id)
+        f_friend = Friend.find_by_user_id_and_fuser_id(fuser.id, current_user.id)
+        logger.debug f_friend
+        if f_user.delete and f_friend.delete
+          flash[:notice] = "vous n'êtes desormais plus amis avec #{fuser.pseudo}"
+        else
+          flash[:alert] = "erreur lors de la suppriession de votre lien d'amitié"
+        end
+      else
+        flash[:alert] = "vous êtes pas amis avec ce membre"
+      end
+    else
+      flash[:alert] = "erreur ce membre n'existe pas"
+    end
+    redirect_to :friends_user
+  end
 end
