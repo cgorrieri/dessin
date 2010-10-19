@@ -28,7 +28,9 @@ Dessin::Application.routes.draw do
   match '/compte/mes-amis' => 'users#friends', :as => :friends_user
   match '/compte/accepter-demande-amis/:id' => 'users#add_friend', :as => :add_friend_user
   match '/compte/supprimer-amis/:id' => 'users#remove_friend', :as => :remove_friend_user
-#  match '/compte/demande-amis/:id' => 'users#ask_friend', :as => :ask_friend_user
+  match '/compte/demande-amis/:id' => 'users#send_friend_request', :as => :send_friend_request
+  match '/compte/refuser-demande-amis/:id' => 'users#remove_friend_request', :as => :remove_friend_request_user
+  match '/compte/les-demande-amis' => 'users#friend_requests', :as => :friend_requests_user
   match '/compte/mes-dossiers' => 'users#folders', :as => :folders_user
   match '/compte/creer-dossiers' => 'users#create_folder', :as => :create_folder_user
   root :to => "home#index"

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dessin</title>
+    <%= stylesheet_link_tag :all, :recursive => true, :cache => false %>
+    <%#= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/ext-core/3.1/ext-core.js' %>
+    <%= javascript_include_tag Dir.glob(Rails.root+'public/javascripts/libs/**/*.js').map{|f|  f.gsub([Rails.root,'public/javascripts/'].join('/'), '') }, :cache => true %>
+    <%= javascript_include_tag Dir.glob(Rails.root+'public/javascripts/app/**/*.js').map{|f|  f.gsub([Rails.root,'public/javascripts/'].join('/'), '') }, :cache => true %>
+    <script type="text/javascript">
+      Shadowbox.init();
+    </script>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="content_empty_layout">
+      <%= content_tag :div, notice, :id => "notice" if notice %>
+      <%= content_tag :div, alert, :id => "alert" if alert %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
