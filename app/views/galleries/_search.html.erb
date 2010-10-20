@@ -1,7 +1,7 @@
 <div class="white_block_without_corner">
   <div class="title">Filtres de recheche</div>
   <div class="content">
-    <%= form_for search, :url => folders_path do |f| %>
+    <%= form_for search, :url => galleries_path do |f| %>
       <div class="search_block search_name_contains">
         <%= f.label :name_contains %>
         <%= f.text_field :name_contains %>

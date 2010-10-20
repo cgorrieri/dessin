@@ -1,0 +1,51 @@
+#create_gallery label
+{
+    display:inline-block;
+    width:80px;
+}
+
+#create_gallery input[type="text"]
+{
+    width:300px;
+    margin:0px
+}
+
+#create_gallery select
+{
+    width:200px;
+    height:20px;
+}
+
+#create_gallery textarea
+{
+    height:50px;
+    width:883px;
+    margin:0px;
+}
+
+#create_gallery div.name,
+#create_gallery div.categorie
+{
+    margin-right:30px;
+    margin-bottom:10px;
+}
+
+#create_gallery div.name,
+#create_gallery div.categorie
+{
+    float:left;
+}
+
+#create_gallery div.submit
+{
+    float:right;
+}
+
+#create_gallery div.description
+{
+    
+}
+#create_gallery div.description label
+{
+    vertical-align:top;
+}

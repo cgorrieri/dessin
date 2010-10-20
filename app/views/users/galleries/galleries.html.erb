@@ -1,0 +1,7 @@
+<div class="white_block_without_corner">
+  <div class="title">Nouveau dossier</div>
+  <div class="content"><%= render :partial => "users/galleries/create_gallery" %></div>
+</div>
+<% @galleries.each do |gallery| %>
+  <%= render :partial => "users/galleries/gallery", :locals => {:gallery => gallery, :color => cycle("blue", "pink", "white")} %>
+<% end %>

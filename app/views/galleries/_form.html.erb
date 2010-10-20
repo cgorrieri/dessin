@@ -1,10 +1,10 @@
-<%= form_for(@folder) do |f| %>
-  <% if @folder.errors.any? %>
+<%= form_for(@gallery) do |f| %>
+  <% if @gallery.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@folder.errors.count, "error") %> prohibited this folder from being saved:</h2>
+      <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
 
       <ul>
-      <% @folder.errors.full_messages.each do |msg| %>
+      <% @gallery.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

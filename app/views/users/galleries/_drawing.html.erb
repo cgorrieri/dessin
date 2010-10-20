@@ -1,6 +1,6 @@
 <div class="drawing">
   <%= link_to (image_tag drawing.url(:thumb)), drawing.url %>
   <div id="clear_float"></div>
-  <%= link_to 'Supprimer', remove_media_folder_path(:media_id => drawing.id), :class => "destroy #{cycle("pink", "white")}" %>
+  <%= link_to 'Supprimer', remove_media_gallery_path(:media_id => drawing.id), :class => "destroy #{cycle("pink", "white")}" %>
   <div id="clear_float"></div>
 </div>

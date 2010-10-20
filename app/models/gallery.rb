@@ -1,4 +1,4 @@
-class Folder < ActiveRecord::Base
+class Gallery < ActiveRecord::Base
   belongs_to :user
   
   has_many :drawings, :as => :media_container, :class_name => 'Media'

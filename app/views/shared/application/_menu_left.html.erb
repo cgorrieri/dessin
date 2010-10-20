@@ -9,7 +9,7 @@
         <% else %>
           <li><%= link_to "Déconnexion", "/compte/deconnexion" %></li>
           <li><%= link_to "Mes identifiants", "/compte/mes-donnees-personnelles" %></li>
-          <li><%= link_to "Mes dossiers", folders_user_path %></li>
+          <li><%= link_to "Mes galeries", galleries_user_path %></li>
           <li><%= link_to "Mes cours", "" %></li>
           <li><%= link_to "Mes messages", "" %></li>
           <li><%= link_to "Les demande d'amis", friend_requests_user_path %></li>
@@ -24,11 +24,11 @@
     <div class="title">Galeries</div>
     <div class="content">
       <ul>
-        <li><%= link_to "Dessin", folders_path("search[categorie_eq]" => "dessin") %></li>
-        <li><%= link_to "Manga", folders_path("search[categorie_eq]" => "manga") %></li>
-        <li><%= link_to "Peinture", folders_path("search[categorie_eq]" => "peinture") %></li>
+        <li><%= link_to "Dessin", galleries_path("search[categorie_eq]" => "dessin") %></li>
+        <li><%= link_to "Manga", galleries_path("search[categorie_eq]" => "manga") %></li>
+        <li><%= link_to "Peinture", galleries_path("search[categorie_eq]" => "peinture") %></li>
         <li>etc</li>
-        <li><%= link_to "Toutes", folders_path %></li>
+        <li><%= link_to "Toutes", galleries_path %></li>
       </ul>
     </div>
   </div>
