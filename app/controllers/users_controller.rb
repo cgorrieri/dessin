@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def choose_layout
-    if [:send_friend_request].include? action_name.to_sym
+    if [:send_friend_request, :send_message].include? action_name.to_sym
       'empty'
     else
       'application'
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
 
   def remove_friend_request
     if @f_request = FriendRequest.find_by_id(params[:id])
-      if @f_request.sender == current_user or @f_request.reciever == current_use
+      if @f_request.sender == current_user or @f_request.reciever == current_user
         if @f_request.destroy
           flash[:notice] = "la demande à bien été refusé"
         else
@@ -134,5 +134,41 @@ class UsersController < ApplicationController
       flash[:alert] = "erreur ce membre n'existe pas"
     end
     redirect_to :friends_user
+  end
+
+  def messages_recieved
+    @messages_recieved = current_user.messages_recieved
+  end
+
+  def send_message
+    reciever = User.find(params[:id])
+    @message = Message.new()
+    if params[:message]
+      @message.sender = current_user
+      @message.reciever = reciever
+      @message.message = params[:message][:message]
+      if @message.save
+        flash.now[:notice] = "envoyé"
+      else
+        flash.now[:alert] = "erreur"
+      end
+    end
+  end
+
+  def remove_message
+    if @message = Message.find_by_id(params[:id])
+      if @message.reciever == current_user
+        if @message.destroy
+          flash[:notice] = "message supprimé avec succès"
+        else
+          flash[:alert] = "erreur"
+        end
+      else
+        flash[:alert] = "Vous n'êtes pas le destinataire de ce message"
+      end
+    else
+      flash[:alert] = "ce message n'existe pas"
+    end
+    redirect_to :messages_recieved_user
   end
 end

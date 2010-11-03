@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :friends, :foreign_key => 'user_id'
   has_many :sender_friends_requests, :foreign_key => 'sender_id', :class_name => "FriendRequest"
   has_many :reciever_friends_requests, :foreign_key => 'reciever_id', :class_name => "FriendRequest"
+  has_many :messages_recieved, :foreign_key => 'reciever_id', :class_name => "Message"
 
   has_attached_file :avatar,
     :styles => {:thumb => "150x150#"},

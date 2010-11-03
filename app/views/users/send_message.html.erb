@@ -1,0 +1,23 @@
+<% unless flash[:notice] or flash[:alert] %>
+  <%= form_for(@message, :url => send_message_user_path) do |f| %>
+    <% if @message.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@message.errors.count, "error") %></h2>
+
+        <ul>
+          <% @message.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :message %><br />
+      <%= f.text_area :message, :rows => "15", :cols => "74" %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Send message' %>
+    </div>
+  <% end %>
+<% end %>

@@ -31,6 +31,9 @@ Dessin::Application.routes.draw do
   match '/compte/refuser-demande-amis/:id' => 'users#remove_friend_request', :as => :remove_friend_request_user
   match '/compte/les-demande-amis' => 'users#friend_requests', :as => :friend_requests_user
   match '/compte/mes-galeries' => 'users#galleries', :as => :galleries_user
+  match '/compte/mes-messages' => 'users#messages_recieved', :as => :messages_recieved_user
+  match '/compte/envoyer-un-message/:id' => 'users#send_message', :as => :send_message_user
+  match '/compte/supprimer-message/:id' => 'users#remove_message', :as => :remove_message_user
   
   root :to => "home#index"
 

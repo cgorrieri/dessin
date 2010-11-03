@@ -1,0 +1,7 @@
+<% @messages_recieved.each do |message| %>
+  From <%= message.sender.pseudo %><br/>
+  at <%= message.created_at %><br/>
+  message :<br/>
+  <%= message.message %><br/>
+  <%= link_to 'Delete', remove_message_user_path(message) %><br/><br/>
+<% end %>

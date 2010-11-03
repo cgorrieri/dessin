@@ -5,7 +5,7 @@
   <div class="content">
     <div class="link">
       <%= link_to 'Show', user_path(:id => user.id) %> |
-      <%= link_to 'send message', '' %> |
+      <%= link_to 'send message', send_message_user_path(:id => user.id), :rel => 'shadowbox;width=600px;height=400px' %> |
       <%= (link_to 'send friend request', send_friend_request_path(:id => user.id), :rel => 'shadowbox;width=600px;height=400px') unless are_friends?(current_user, user) or current_user == user or already_requested_to?(current_user, user) or already_requested_to?(user, current_user) %>
     </div>
   </div>
