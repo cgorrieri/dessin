@@ -18,7 +18,7 @@ Dessin::Application.routes.draw do
   devise_for :users,
     :path => "compte",
     :path_names => devise_path_names,
-    :controllers => { :registrations => "users/registrations" } do
+    :controllers => { :registrations => "users/registrations", :sessions => "users/sessions" } do
       get "/compte/mes-donnees-personnelles" => "users/registrations#edit"
     end
 
