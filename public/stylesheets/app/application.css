@@ -3,6 +3,7 @@ body
     background:#ffffff url(/images/design/application/background.png) repeat-x;
     margin:0px;
     color:#ffffff;
+    font-family:Arial, Tahoma, sans-serif;
 }
 
 #application
