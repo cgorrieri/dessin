@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   validates :birth_date, :presence => true
 
   SEX = {'Non dit' => 'NC', 'Homme' => 'H', 'Femme' => 'F'}
+  ROLE = {'0' => 'Member', '20' => 'Newser', '100' => 'Administrator'}
 
   has_many :friends, :foreign_key => 'user_id'
   has_many :sender_friends_requests, :foreign_key => 'sender_id', :class_name => "FriendRequest"
