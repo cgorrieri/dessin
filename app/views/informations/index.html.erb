@@ -1,0 +1,5 @@
+<div class="content_title">Listing Informations</div>
+
+<%= link_to 'New Information', new_information_path %>
+
+<%= render :collection => @informations, :partial => "information", :locals => {:color => cycle("blue", "pink", "white")} %>

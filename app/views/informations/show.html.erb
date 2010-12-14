@@ -1,0 +1,19 @@
+<div class="blue_block">
+  <div class="title">
+    <%= @information.title %>
+  </div>
+  <div class="content">
+    <%= @information.content %>
+  </div>
+</div>
+<div class="blue_block_footer">
+  <div class="block">
+    <div class="links" style="float:left">
+      <%= link_to 'Edit', edit_information_path(@information) %> |
+      <%= link_to 'Back', informations_path %>
+    </div>
+    <div class="author" style="float:right">
+      <%= @information.writer.pseudo %>
+    </div>
+  </div>
+</div>

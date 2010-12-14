@@ -1,2 +1,10 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="white_block_without_corner">
+  <div class="title">Last drawings</div>
+  <div class="content" id="home_images">
+    <% @medias.each do |drawing| %>
+      <%= link_to (image_tag drawing.url(:thumb)), drawing.media_container, :alt => "open gallery" %>
+    <% end %>
+  </div>
+</div>
+
+<%= render :partial => 'informations/information', :collection => @informations %>

@@ -1,0 +1,16 @@
+<% color = cycle("blue", "pink", "white") %>
+<div class="<%= color %>_block">
+  <div class="title">
+    <%= information.title %>
+  </div>
+  <div class="content">
+    <%= information.content %>
+  </div>
+</div>
+<div class="<%= color %>_block_footer">
+  <div class="block">
+    <div class="link">
+      <%= link_to 'Show', information_path(information.id) %>
+    </div>
+  </div>
+</div>
