@@ -4,11 +4,11 @@
     <div class="content">
       <ul>
         <% unless user_signed_in? %>
-          <li><%= link_to "Connexion", "/compte/connexion" %></li>
-          <li><%= link_to "Inscription", "/compte/inscription" %></li>
+          <li><%= link_to "Connexion", new_user_session_path %></li>
+          <li><%= link_to "Inscription", new_user_registration_path %></li>
         <% else %>
-          <li><%= link_to "Déconnexion", "/compte/deconnexion" %></li>
-          <li><%= link_to "Mes identifiants", "/compte/mes-donnees-personnelles" %></li>
+          <li><%= link_to "Déconnexion", new_user_session_path %></li>
+          <li><%= link_to "Mes identifiants", private_datas_user_path %></li>
           <li><%= link_to "Mes galeries", galleries_user_path %></li>
           <li><%= link_to "Mes cours", "" %></li>
           <li><%= link_to "Mes messages", messages_recieved_user_path %></li>
