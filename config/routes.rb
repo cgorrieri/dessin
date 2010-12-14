@@ -1,13 +1,19 @@
 Dessin::Application.routes.draw do
-  
-  resources :galleries do
+
+  resources :informations,
+    :path => "news",
+    :path_names => { :new => 'creer-une-news', :edit => 'modifier-une-news' }
+
+  resources :gallery_categories
+
+  resources :galleries,
+    :path => "galerie" do
     resources :medias
     member do
       post :add_media
       get :remove_media
     end
   end
-  match '/compte/supprimer-galerie/:id' => 'galleries#destroy', :as => :delete_gallery_user
 
   devise_path_names = { :sign_in => 'connexion',
     :sign_out => 'deconnexion',
@@ -19,21 +25,21 @@ Dessin::Application.routes.draw do
     :path => "compte",
     :path_names => devise_path_names,
     :controllers => { :registrations => "users/registrations", :sessions => "users/sessions" } do
-      get "/compte/mes-donnees-personnelles" => "users/registrations#edit"
+      get "/compte/mes-donnees-personnelles" => "users/registrations#edit", :as => :private_datas_user
     end
 
   match '/les-membres/membre/:id' => 'users#show', :as => :user
   match '/les-membres' => 'users#index', :as => :users
-  match '/compte/mes-amis' => 'users#friends', :as => :friends_user
+  match '/compte/mes-galeries' => 'users#galleries', :as => :galleries_user
   match '/compte/accepter-demande-amis/:id' => 'users#add_friend', :as => :add_friend_user
   match '/compte/supprimer-amis/:id' => 'users#remove_friend', :as => :remove_friend_user
   match '/compte/demande-amis/:id' => 'users#send_friend_request', :as => :send_friend_request
   match '/compte/refuser-demande-amis/:id' => 'users#remove_friend_request', :as => :remove_friend_request_user
   match '/compte/les-demande-amis' => 'users#friend_requests', :as => :friend_requests_user
-  match '/compte/mes-galeries' => 'users#galleries', :as => :galleries_user
-  match '/compte/mes-messages' => 'users#messages_recieved', :as => :messages_recieved_user
+  match '/compte/mes-amis' => 'users#friends', :as => :friends_user
   match '/compte/envoyer-un-message/:id' => 'users#send_message', :as => :send_message_user
   match '/compte/supprimer-message/:id' => 'users#remove_message', :as => :remove_message_user
+  match '/compte/mes-messages' => 'users#messages_recieved', :as => :messages_recieved_user
   
   root :to => "home#index"
 
