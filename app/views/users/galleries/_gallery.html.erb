@@ -7,5 +7,13 @@
   </div>
 </div>
 <div class="<%= color %>_block_footer">
-  <div class="block"><div class="link"><%= link_to 'Show & Edit', gallery %> | <%= link_to 'Destroy', delete_gallery_user_path(gallery) %></div></div>
+  <div class="block">
+    <div class="link">
+      <%= link_to 'Show & Edit', gallery %> |
+      <%= button_to "Delete", gallery_path(gallery), :confirm => "Are you sure?", :method => :delete %>
+    </div>
+  </div>
+  <div class="keywords">
+    <%= format_keywords(gallery.keywords) %>
+  </div>
 </div>

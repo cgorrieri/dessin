@@ -1,27 +1,38 @@
 <div class="white_block">
-  <div class="title">Dossier : <%= @gallery.name %></div>
+  <div class="title"><%= @gallery.name %> : les données</div>
   <div class="content">
-    <%= @gallery.description.size > 0 ? @gallery.description : "Pas de description" %>
+    <%= form_for(@gallery) do |f| %>
+    <%= format_errors(@gallery) %>
+
+    <div class="field name">
+      <%= f.label :name %> <%= f.text_field :name %>
+    </div>
+    <div class="field keywords">
+      <% keywords = @gallery.keywords.split(',') %>
+      <%= f.label :keywords %>
+      <% App::GalleryKeywords.each do |keyword| %>
+        <%= check_box_tag "keywords[#{keyword}]", keyword , (keywords.include?(keyword))%><%= label_tag "keywords[#{keyword}]", I18n.t("keywords.#{keyword}") %>
+      <% end %>
+    </div>
+    <div class="field description">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+    <div class="actions submit">
+      <%= f.submit %>
+    </div>
+  <% end %>
   </div>
 </div>
 <div class="white_block_footer">
-  <div class="block"><%= link_to 'Destroy', delete_gallery_user_path(@gallery) %></div>
+  <div class="block"><%= button_to 'Destroy', gallery_path(@gallery), :method => :delete %></div>
 </div>
 
 <div class="blue_block_without_corner">
   <div class="title">Ajouter une image</div>
   <div class="content">
     <%= form_for(@media, :html => { :multipart => true } , :url =>{:controller => "galleries", :action => "add_media"}, :method => "post") do |f| %>
-      <% if @media.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@media.errors.count, "error") %> prohibited this gallery from being saved:</h2>
-          <ul>
-            <% @media.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+      <%= format_errors(@media) %>
 
       <div class="field image">
         <%= f.label :image %> <%= f.file_field :image %>

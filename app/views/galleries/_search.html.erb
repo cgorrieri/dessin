@@ -10,9 +10,9 @@
         <%= f.label :user_pseudo_contains %>
         <%= f.text_field :user_pseudo_contains %>
       </div>
-      <div class="search_block search_categorie_contains">
-        <%= f.label :categorie_eq %>
-        <%= f.select :categorie_eq, {""=>"","dessin"=>"dessin","peinture"=>"peinture"} %>
+      <div class="search_block search_keywords_contains">
+        <%= f.label :keywords_contains %>
+        <%= f.text_field :keywords_contains %>
       </div>
       <div class="search_block search_buttons">
         <%= f.submit "rechercher" %>

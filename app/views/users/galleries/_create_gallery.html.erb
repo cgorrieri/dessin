@@ -1,29 +1,22 @@
 <div id="create_gallery">
   <%= form_for(@gallery) do |f| %>
-    <% if @gallery.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
-        <ul>
-          <% @gallery.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
+    <%= format_errors(@gallery) %>
+    
     <div class="field name">
       <%= f.label :name %> <%= f.text_field :name %>
     </div>
-    <div class="field categorie">
-      <%= f.label :categorie %> <%= f.select :categorie, [['dessin', 'dessin'], ['peinture', 'peinture']] %>
+    <div class="field keywords">
+      <%= f.label :keywords %>
+      <% App::GalleryKeywords.each do |keyword| %>
+        <%= check_box_tag "keywords[#{keyword}]", keyword %><%= label_tag "keywords[#{keyword}]", I18n.t("keywords.#{keyword}") %>
+      <% end %>
     </div>
-    <div class="actions submit">
-      <%= f.submit %>
-    </div>
-    <div id="clear_float"></div>
     <div class="field description">
       <%= f.label :description %> 
       <%= f.text_area :description %>
+    </div>
+    <div class="actions submit">
+      <%= f.submit %>
     </div>
   <% end %>
 </div>

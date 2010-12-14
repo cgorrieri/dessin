@@ -1,5 +1,5 @@
 <div class="white_block_without_corner">
-  <div class="title">Dossier : <%= @gallery.name %></div>
+  <div class="title"><%= @gallery.name %> by <%= link_to @gallery.user.pseudo, @gallery.user %></div>
   <div class="content">
     <%= @gallery.description.size > 0 ? @gallery.description : "Pas de description" %>
   </div>
@@ -11,5 +11,4 @@
   </div>
 <% end %>
 
-<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
-<%= link_to 'Back', galleries_path %>
+<div id="clear_float"></div>

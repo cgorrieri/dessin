@@ -17,7 +17,6 @@ class GalleriesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @galleries }
     end
   end
 
@@ -40,37 +39,38 @@ class GalleriesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @gallery }
     end
   end
 
   # POST /galleries
   def create
+    # params[:keywords] => hash {"keyword" => "keyword", ...}
     @gallery = Gallery.new(params[:gallery])
+    @gallery.keywords = keywords_string(params[:keywords])
     if @gallery.valid?
       @gallery.user_id = current_user.id
       if @gallery.save
         @gallery = Gallery.new
-        flash[:notice] = "Dossier créer avec succès"
+        flash[:notice] = "Gallery created succesfully"
       else
-        flash[:alert] = "une errieur est survenue lors de l'enregistrement"
+        flash[:alert] = "an error has encoutered in creating"
       end
     else
       flash['gallery'] = @gallery
     end
-    redirect_to :controller => "users", :action => "galleries"
+    redirect_to galleries_user_path
   end
 
   # PUT /galleries/1
   def update
     if @gallery = current_user.galleries.find_by_id(params[:id])
-      if @gallery.update_attributes(params[:gallery])
+      if @gallery.update_attributes(params[:gallery].merge!({:keywords => keywords_string(params[:keywords])}))
         redirect_to(@gallery, :notice => 'Gallery was successfully updated.')
       else
-        render :action => "edit"
+        redirect_to(@gallery, :alert => 'Error in update')
       end
     else
-      edirect_to :controller => "users", :action => "galleries", :alert => "This gallery don't exist or is not your's"
+      redirect_to galleries_user_path, :alert => "This gallery don't exist or is not your's"
     end
   end
 
@@ -84,7 +84,7 @@ class GalleriesController < ApplicationController
     else
       flash[:alert] = "This gallery not exist or is not your own"
     end
-    redirect_to :controller => "users", :action => "galleries"
+    redirect_to galleries_user_path
   end
 
 
@@ -93,9 +93,9 @@ class GalleriesController < ApplicationController
     if params[:media]
       media = @gallery.drawings.create(params[:media])
       if media.save
-        flash.now[:notice] = "dessin ajoutée avec succès"
+        flash.now[:notice] = "drawing added succesfully"
       else
-        flash.now[:alert] = "l'upload a rencontré une erreur"
+        flash.now[:alert] = "an error has encoutered in uploading"
       end
     end
     redirect_to :action => :show
@@ -113,5 +113,8 @@ class GalleriesController < ApplicationController
     end
     redirect_to :action => :show, :anchor => "test"
   end
-    
+
+  def keywords_string(keywords_hash = nil)
+    keywords_hash.map { |key, value| key}.join(',')
+  end
 end

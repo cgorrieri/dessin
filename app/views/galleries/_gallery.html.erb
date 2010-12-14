@@ -1,5 +1,5 @@
 <div class="<%= color %>_block">
-  <div class="title"><%= gallery.name %> (<%= gallery.categorie %>)<span style="float:right;margin-right:10px;">auteur : <%= gallery.user.pseudo %> </span></div>
+  <div class="title"><%= gallery.name %> (<%= gallery.keywords %>)<span style="float:right;margin-right:10px;">auteur : <%= gallery.user.pseudo %> </span></div>
   <div class="content">
     <% gallery.drawings.limit(6).order("created_at desc").each do |m| %>
       <%= image_tag m.url(:thumb) %>

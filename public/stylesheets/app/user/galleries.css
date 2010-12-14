@@ -19,27 +19,17 @@
 #create_gallery textarea
 {
     height:50px;
-    width:883px;
+    width:100%;
     margin:0px;
 }
 
 #create_gallery div.name,
-#create_gallery div.categorie
+#create_gallery div.keywords
 {
     margin-right:30px;
     margin-bottom:10px;
 }
 
-#create_gallery div.name,
-#create_gallery div.categorie
-{
-    float:left;
-}
-
-#create_gallery div.submit
-{
-    float:right;
-}
 
 #create_gallery div.description
 {
