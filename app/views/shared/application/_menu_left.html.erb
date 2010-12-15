@@ -24,10 +24,9 @@
     <div class="title">Galeries</div>
     <div class="content">
       <ul>
-        <li><%= link_to "Dessin", galleries_path("search[categorie_eq]" => "dessin") %></li>
-        <li><%= link_to "Manga", galleries_path("search[categorie_eq]" => "manga") %></li>
-        <li><%= link_to "Peinture", galleries_path("search[categorie_eq]" => "peinture") %></li>
-        <li>etc</li>
+        <% App::GalleryKeywords.each do |keyword| %>
+          <li><%= link_to I18n.t("keywords.#{keyword}"), galleries_path("search[keywords_contains_any(#{App::GalleryKeywords.index(keyword)+1})]" => keyword) %></li>
+        <% end %>
         <li><%= link_to "Toutes", galleries_path %></li>
       </ul>
     </div>
