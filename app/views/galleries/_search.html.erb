@@ -12,7 +12,10 @@
       </div>
       <div class="search_block search_keywords_contains">
         <%= f.label :keywords_contains %>
-        <%= f.text_field :keywords_contains %>
+        <% App::GalleryKeywords.each do |keyword| %>
+          <%= f.label :"keywords_contains_any(#{App::GalleryKeywords.index(keyword)+1})", I18n.t("keywords.#{keyword}") %>
+          <%= f.check_box :"keywords_contains_any(#{App::GalleryKeywords.index(keyword)+1})", {}, keyword, "" %>
+        <% end %>
       </div>
       <div class="search_block search_buttons">
         <%= f.submit "rechercher" %>
