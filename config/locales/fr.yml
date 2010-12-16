@@ -136,7 +136,8 @@ fr:
 
   activerecord:
     models:
-      user: "Memnbre"
+      user: "Membre"
+      gallery: "Galerie"
     attributes:
       user:
         avatar: "Avatar"
@@ -146,6 +147,11 @@ fr:
         current_password: "Mot de passe actuel"
         password: "Mot de passe"
         password_confirmation: "Confirmation du mot de passe"
+      gallery:
+        name: "Nom"
+        category: "Categorie"
+        description: "Description"
+        submit: "Creer galerie"
 
   activemodel:
     models:
@@ -166,7 +172,12 @@ fr:
         friend_name: "Son nom"
         friend_email: "Son e-mail"
 
-  
+  keywords:
+    manga: "manga"
+    comics: "bande déssinée"
+    paint: "peinture"
+    infography: "infographie"
+    
 #  agencies:
 #    messages:
 #        zero: "Aucune agence trouvée"
