@@ -10,33 +10,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101002180059) do
+ActiveRecord::Schema.define(:version => 20101213071829) do
 
-  create_table "discutions", :force => true do |t|
-    t.integer  "forum_part_id"
-    t.string   "title"
+  create_table "friend_requests", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "reciever_id"
+    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "folders", :force => true do |t|
+  create_table "friends", :force => true do |t|
     t.integer  "user_id"
+    t.integer  "fuser_id"
+    t.integer  "fuser_update",      :default => 0
+    t.text     "fuser_update_tags"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "galleries", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "keywords"
     t.string   "name"
-    t.string   "categorie"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "forum_parts", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "friends", :id => false, :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "friend_id"
+  create_table "informations", :force => true do |t|
+    t.integer  "writer_id"
+    t.string   "title"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,8 +63,8 @@ ActiveRecord::Schema.define(:version => 20101002180059) do
   end
 
   create_table "messages", :force => true do |t|
-    t.integer  "discution_id"
-    t.integer  "user_id"
+    t.integer  "sender_id"
+    t.integer  "reciever_id"
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
