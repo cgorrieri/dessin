@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     :styles => {:thumb => "150x150#"},
     :url => "/images/avatar/:id/:style_:basename.:extension",
     :path => ":rails_root/public/images/avatar/:id/:style_:basename.:extension",
-    :default_url => "/images/avatar/default.jpeg"
+    :default_url => "/images/avatar/default/avatar_base.jpg"
 
   def url(*args)
     avatar.url(*args)
