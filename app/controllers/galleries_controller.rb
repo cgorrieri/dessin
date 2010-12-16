@@ -1,7 +1,7 @@
 # coding: utf-8
 
 class GalleriesController < ApplicationController
-  before_filter :authenticate, :only => [:create, :uptade, :edit, :destroy]
+  before_filter :authenticate, :only => [:new, :create, :uptade, :edit, :destroy]
 
   def authenticate
     unless user_signed_in?
@@ -22,15 +22,8 @@ class GalleriesController < ApplicationController
 
   # GET /galleries/1
   def show
-    @media = Media.new
     @gallery = Gallery.find(params[:id])
     @drawings = @gallery.drawings.reverse
-
-    if current_user && @gallery.user.id == current_user.id
-      render "users/galleries/edit"
-    else
-      render
-    end
   end
 
   # GET /galleries/new
@@ -59,6 +52,18 @@ class GalleriesController < ApplicationController
       flash['gallery'] = @gallery
     end
     redirect_to galleries_user_path
+  end
+
+  def edit
+    @media = Media.new
+    @gallery = Gallery.find(params[:id])
+    @drawings = @gallery.drawings.reverse
+    
+    if current_user && @gallery.user.id == current_user.id
+      render "users/galleries/edit"
+    else
+      redirect_to @gallery, :alert => "You're not allowed to edit this gallery"
+    end
   end
 
   # PUT /galleries/1

@@ -9,7 +9,7 @@
 <div class="<%= color %>_block_footer">
   <div class="block">
     <div class="link">
-      <%= link_to 'Show & Edit', gallery %> |
+      <%= link_to 'Show & Edit', edit_gallery_path(gallery) %> |
       <%= button_to "Delete", gallery_path(gallery), :confirm => "Are you sure?", :method => :delete %>
     </div>
   </div>
