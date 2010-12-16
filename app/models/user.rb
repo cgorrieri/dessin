@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :galleries
+  has_many :galleries, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
