@@ -1,8 +1,22 @@
-<div class="white_block_without_corner">
-  <div class="title">
-    <%= @user.pseudo %>
-  </div>
+<div class="blue_block">
+  <div class="title"><%= @user.pseudo %></div>
   <div class="content">
-    Description : <%= @user.description %>
+      <p><%= image_tag @user.avatar.url(:thumb) %></p>
+      <%#= years = Time.now.year - @user.birth_date.to_date.year %>
+      <p><%= Time.now.year - @user.birth_date.to_date.year %> years old</p>
+      <p><%= I18n.t("gender.#{@user.gender}") %></p>
+      <p><%= @user.description %></p>
   </div>
 </div>
+<div class="blue_block_footer">
+  <div class="block">
+    <div class="link">
+      <%= link_to 'send message', send_message_user_path(:id => @user.id), :rel => 'shadowbox;width=600px;height=400px' %> |
+      <%= (link_to 'send friend request', send_friend_request_path(:id => @user.id), :rel => 'shadowbox;width=600px;height=400px') unless are_friends?(current_user, @user) or current_user == @user or already_requested_to?(current_user, @user) or already_requested_to?(@user, current_user) %>
+    </div>
+  </div>
+</div>
+
+<div class="content_title">Galleries</div>
+
+<%= render :collection => @user.galleries, :partial => "galleries/gallery", :locals => {:color => cycle("blue", "pink", "white")} %>
