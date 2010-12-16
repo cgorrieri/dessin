@@ -7,10 +7,6 @@ gem 'rails', '3.0.0'
 
 gem 'mysql-ruby', :git => "http://github.com/lsegal/mysql-ruby.git"
 
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
 # Pagination
 gem 'will_paginate', '3.0.pre2'
 
