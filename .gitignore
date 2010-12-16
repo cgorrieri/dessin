@@ -5,12 +5,10 @@ tmp/**/*
 tmp/restart.txt
 public/images/medias
 public/images/avatar
-nbproject
 test
-/doc/models_brief.svg
-/doc/models_complete.svg
-/doc/controllers_complete.svg
-/doc/controllers_brief.svg
-Gemfile.lock
-db/schema.rb
+nbproject
+doc/models_brief.svg
+doc/models_complete.svg
+doc/controllers_complete.svg
+doc/controllers_brief.svg
 /app/models/gallery_category.rb
