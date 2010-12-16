@@ -70,9 +70,9 @@ class GalleriesController < ApplicationController
   def update
     if @gallery = current_user.galleries.find_by_id(params[:id])
       if @gallery.update_attributes(params[:gallery].merge!({:keywords => keywords_string(params[:keywords])}))
-        redirect_to(@gallery, :notice => 'Gallery was successfully updated.')
+        redirect_to(edit_gallery_path(@gallery), :notice => 'Gallery was successfully updated.')
       else
-        redirect_to(@gallery, :alert => 'Error in update')
+        redirect_to(edit_gallery_path(@gallery), :alert => 'Error in update')
       end
     else
       redirect_to galleries_user_path, :alert => "This gallery don't exist or is not your's"
@@ -98,12 +98,12 @@ class GalleriesController < ApplicationController
     if params[:media]
       media = @gallery.drawings.create(params[:media])
       if media.save
-        flash.now[:notice] = "drawing added succesfully"
+        flash[:notice] = "drawing added succesfully"
       else
-        flash.now[:alert] = "an error has encoutered in uploading"
+        flash[:alert] = "an error has encoutered in uploading"
       end
     end
-    redirect_to :action => :show
+    redirect_to edit_gallery_path(@gallery)
   end
 
   def remove_media
@@ -116,7 +116,7 @@ class GalleriesController < ApplicationController
         flash[:alert] = "la suppression a échoué"
       end
     end
-    redirect_to :action => :show, :anchor => "test"
+    redirect_to edit_gallery_path(@gallery)
   end
 
   def keywords_string(keywords_hash = nil)
