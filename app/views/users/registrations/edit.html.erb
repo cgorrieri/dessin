@@ -11,8 +11,8 @@
       <p><%= f.label :birth_date %>
         <%= f.date_select :birth_date,:order => [:day, :month, :year], :default => (20.days.from_now), :end_year => (Time.now.year - 5), :start_year => (Time.now.year - 60) %></p>
 
-      <p><%= f.label :sex %>
-        <%= f.select :sex, User::SEX, :selected => current_user.sex %></p>
+      <p><%= f.label :gender %>
+        <%= f.select :gender, options_for_select(User::GENDER.map{ |sex| [I18n.t("gender.#{sex}"), sex]}), :selected => current_user.gender %></p>
 
       <p><%= f.label :description %><br/>
         <%= f.text_area :description, :cols => 70, :rows => 10 %></p>

@@ -4,7 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.integer :role, :default => "0"
       t.string :pseudo, :null => false
       t.date :birth_date, :null => false
-      t.string :sex, :default => "NC"
+      t.string :gender, :default => "nc"
       t.text :description
       t.text :options
       t.string :avatar_file_name # Original filename

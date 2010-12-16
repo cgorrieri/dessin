@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :pseudo, :presence => true, :uniqueness => true
   validates :birth_date, :presence => true
 
-  SEX = {'Non dit' => 'NC', 'Homme' => 'H', 'Femme' => 'F'}
+  GENDER = ['m', 'f', 'nc']
   ROLE = {'0' => 'Member', '20' => 'Newser', '100' => 'Administrator'}
 
   has_many :friends, :foreign_key => 'user_id'

@@ -108,6 +108,10 @@ fr:
       words_connector: ", "
       two_words_connector: " et "
       last_word_connector: " et "
+  gender:
+    m: "Masculin"
+    f: "Feminin"
+    nc: "Non communiqué"
   
   errors:
     template:
@@ -142,7 +146,7 @@ fr:
       user:
         avatar: "Avatar"
         birth_date : "Date de naissance"
-        sex: "Sexe"
+        gender: "Sexe"
         description: "Description"
         current_password: "Mot de passe actuel"
         password: "Mot de passe"
@@ -155,18 +159,8 @@ fr:
 
   activemodel:
     models:
-      agency_contact_form: "Formulaire de contact agence"
       send_friend_form: "Formulaire d'envoi à un amis"
     attributes:
-      agency_contact_form:
-        email: "E-mail"
-        name: "Nom"
-        civility: "Civilité"
-        address: "Adresse"
-        postalcode: "Code postal"
-        city: "Ville"
-        phone: "Téléphone"
-        message: "Message"
       send_friend_form:
         sender_name: "Votre nom"
         friend_name: "Son nom"
