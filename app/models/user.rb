@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-
-  has_many :galleries, :dependent => :destroy
+  GENDER = ['m', 'f', 'nc']
+  ROLE = {'0' => 'Member', '20' => 'Newser', '100' => 'Administrator'}
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
@@ -9,11 +10,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :avatar, :pseudo, :birth_date, :sex, :description, :role, :email, :password, :password_confirmation, :remember_me
 
-  validates :pseudo, :presence => true, :uniqueness => true
-  validates :birth_date, :presence => true
 
-  GENDER = ['m', 'f', 'nc']
-  ROLE = {'0' => 'Member', '20' => 'Newser', '100' => 'Administrator'}
+  has_many :galleries, :dependent => :destroy
 
   has_many :friends, :foreign_key => 'user_id'
   has_many :sender_friends_requests, :foreign_key => 'sender_id', :class_name => "FriendRequest"
@@ -41,5 +39,8 @@ class User < ActiveRecord::Base
   def size
     avatar_file_size
   end
+
+  validates :pseudo, :presence => true, :uniqueness => true
+  validates :birth_date, :presence => true
 
 end
