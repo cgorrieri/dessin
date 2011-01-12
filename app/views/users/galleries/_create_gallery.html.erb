@@ -8,7 +8,7 @@
     <div class="field keywords">
       <%= f.label :keywords %>
       <% App::GalleryKeywords.each do |keyword| %>
-        <%= check_box_tag "keywords[#{keyword}]", keyword %><%= label_tag "keywords[#{keyword}]", I18n.t("keywords.#{keyword}") %>
+        <%= check_box_tag "keywords[#{keyword}]", keyword, (@gallery.keywords.nil? ? false : @gallery.keywords.include?(keyword) )%><%= label_tag "keywords[#{keyword}]", I18n.t("keywords.#{keyword}") %>
       <% end %>
     </div>
     <div class="field description">

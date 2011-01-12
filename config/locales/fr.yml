@@ -137,6 +137,7 @@ fr:
       odd: "doit être impair"
       even: "doit être pair"
       record_invalid: "La validation a échoué : %{errors}"
+      keywords_must_be_contains_between: "doivent avoir entre %{min} et %{max} valeurs"
 
   activerecord:
     models:
@@ -153,7 +154,7 @@ fr:
         password_confirmation: "Confirmation du mot de passe"
       gallery:
         name: "Nom"
-        category: "Categorie"
+        keywords: "Mots clès"
         description: "Description"
         submit: "Creer galerie"
 
