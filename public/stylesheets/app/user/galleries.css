@@ -1,8 +1,8 @@
 #create_gallery label
 {
     display:inline-block;
-    width:80px;
 }
+
 
 #create_gallery input[type="text"]
 {
@@ -28,6 +28,25 @@
 {
     margin-right:30px;
     margin-bottom:10px;
+}
+#create_gallery div.keywords > label
+{
+    display:block;
+    float:left;
+}
+#create_gallery div.keywords .keywords_list
+{
+    float:right;
+    width:560px;
+}
+#create_gallery div.keywords .keywords_list div.keyword
+{
+    float:left;
+}
+#create_gallery div.keywords .keywords_list div.keyword label
+{
+    min-width:inherit;
+    margin-right:20px;
 }
 
 

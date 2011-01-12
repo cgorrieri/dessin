@@ -1,18 +1,24 @@
 <div id="create_gallery">
   <%= form_for(@gallery) do |f| %>
     <%= format_errors(@gallery) %>
-    
+
     <div class="field name">
       <%= f.label :name %> <%= f.text_field :name %>
     </div>
     <div class="field keywords">
       <%= f.label :keywords %>
-      <% App::GalleryKeywords.each do |keyword| %>
-        <%= check_box_tag "keywords[#{keyword}]", keyword, (@gallery.keywords.nil? ? false : @gallery.keywords.include?(keyword) )%><%= label_tag "keywords[#{keyword}]", I18n.t("keywords.#{keyword}") %>
-      <% end %>
+      <div class="keywords_list">
+        <% App::GalleryKeywords.each do |keyword| %>
+          <div class="keyword">
+            <%= check_box_tag "keywords[#{keyword}]", keyword, (@gallery.keywords.nil? ? false : @gallery.keywords.include?(keyword) )%>
+            <%= label_tag "keywords[#{keyword}]", I18n.t("keywords.#{keyword}") %>
+          </div>
+        <% end %>
+      </div>
     </div>
+    <div id="clear_float"></div>
     <div class="field description">
-      <%= f.label :description %> 
+      <%= f.label :description %>
       <%= f.text_area :description %>
     </div>
     <div class="actions submit">
