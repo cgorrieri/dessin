@@ -1,0 +1,22 @@
+.user_edit .informations {
+    min-height: 150px;
+    margin-bottom:20px;
+}
+.user_edit .informations img.avatar {
+    display:block;
+    float:left;
+    width:150px;
+    margin-right:20px;
+}
+.user_edit .informations .pseudo {
+    font-size:3em;
+    font-weight:bold;
+}
+
+.user_edit .datas {
+    margin-bottom:20px;
+}
+
+.user_edit .change_id {
+    margin-bottom:20px;
+}

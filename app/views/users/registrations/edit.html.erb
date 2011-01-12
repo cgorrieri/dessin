@@ -1,35 +1,61 @@
 <div class="blue_block_without_corner">
   <div class="title">Mes données personnelles</div>
   <div class="content">
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true, :method => :put, :autocomplete => 'off' }) do |f| %>
-      <%= devise_error_messages! %>
-      <p><%= image_tag current_user.avatar.url(:thumb) %></p>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true, :method => :put, :autocomplete => 'off', :class => "user_edit" }) do |f| %>
+      <%= devise_errors! %>
 
-      <p><%= f.label :avatar %><br/>
-        <%= f.file_field :avatar %></p>
+      <div class="informations">
+        <%= image_tag current_user.avatar.url(:thumb), :class => "avatar" %>
+        <div class="pseudo"><%= current_user.pseudo %></div>
+        <div>status : <%= User::ROLE[current_user.role.to_s] %></div>
+  <%#*<div>subscription end date</div>%>
+      </div>
 
-      <p><%= f.label :birth_date %>
-        <%= f.date_select :birth_date,:order => [:day, :month, :year], :default => (20.days.from_now), :end_year => (Time.now.year - 5), :start_year => (Time.now.year - 60) %></p>
+      <div class="datas">
 
-      <p><%= f.label :gender %>
-        <%= f.select :gender, options_for_select(User::GENDER.map{ |sex| [I18n.t("gender.#{sex}"), sex]}), :selected => current_user.gender %></p>
+        <div class="field">
+          <%= f.label :birth_date %>
+          <%= f.date_select :birth_date,:order => [:day, :month, :year], :default => (20.days.from_now), :end_year => (Time.now.year - 5), :start_year => (Time.now.year - 60) %>
+        </div>
 
-      <p><%= f.label :description %><br/>
-        <%= f.text_area :description, :cols => 70, :rows => 10 %></p>
+        <div class="field">
+          <%= f.label :gender %>
+          <%= f.select :gender, options_for_select(User::GENDER.map{ |sex| [I18n.t("gender.#{sex}"), sex]}), :selected => current_user.gender %>
+        </div>
 
-      <p><%= f.label :email %><br />
-        <%= f.text_field :email %></p>
+        <div class="field">
+          <%= f.label :description %><br/>
+          <%= f.text_area :description, :cols => 70, :rows => 10 %>
+        </div>
+        <div class="field">
+          <%= f.label :avatar %>
+          <%= f.file_field :avatar %>
+        </div>
+      </div>
 
-      <p><%= f.label :password %> <i>(<%= I18n.t("devise.registrations.edit.password_instruction") %>)</i><br />
-        <%= f.password_field :password %></p>
+      <div class="change_id">
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>
 
-      <p><%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation %></p>
+        <div class="field">
+          <%= f.label :password %> <i>(<%= I18n.t("devise.registrations.edit.password_instruction") %>)</i><br />
+          <%= f.password_field :password %>
+        </div>
 
-      <p><%= f.label :current_password %> <i>(<%= I18n.t("devise.registrations.edit.current_password_instruction") %>)</i><br />
-        <%= f.password_field :current_password %></p>
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation %>
+        </div>
 
-      <p><%= f.submit I18n.t("devise.registrations.edit.update") %></p>
+        <div class="field mandatory">
+          <%= f.label :current_password %> <i>(<%= I18n.t("devise.registrations.edit.current_password_instruction") %>)</i><br />
+          <%= f.password_field :current_password %>
+        </div>
+      </div>
+
+      <div><%= f.submit I18n.t("devise.registrations.edit.update") %></div>
     <% end %>
   </div>
 </div>
