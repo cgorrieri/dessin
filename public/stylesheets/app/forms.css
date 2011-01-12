@@ -1,0 +1,11 @@
+form .field {
+    margin:5px 0px;
+}
+form .field label {
+    display:inline-block;
+    min-width:140px;
+    margin-right:10px;
+}
+form .mandatory label {
+    font-weight:bold;
+}
