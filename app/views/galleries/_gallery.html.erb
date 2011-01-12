@@ -1,5 +1,5 @@
 <% if gallery.drawings.count > 0 %>
-  <div class="<%= color %>_block">
+  <div class="<%= color %>_block gallery">
     <% keywords = gallery.keywords.split(',').map{ |val| I18n.t("keywords.#{val}")}.join(', ') %>
     <div class="title"><%= gallery.name %> <span style="float:right;margin-right:10px;">auteur : <%= link_to gallery.user.pseudo, gallery.user %> </span></div>
     <div class="content">
@@ -8,12 +8,12 @@
       <% end %>
     </div>
   </div>
-  <div class="<%= color %>_block_footer">
+  <div class="<%= color %>_block_footer  gallery">
     <div class="block">
-      <div class="link" style="float:left">
+      <div class="link">
         <%= link_to 'Show', gallery %>
       </div>
-      <div class="keywords" style="float:right">
+      <div class="keywords" >
         <%= keywords %>
       </div>
     </div>

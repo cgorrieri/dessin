@@ -1,4 +1,4 @@
-<div class="<%= color %>_block">
+<div class="<%= color %>_block gallery">
   <div class="title"><%= gallery.name %></div>
   <div class="content">
     <% gallery.drawings.limit(4).reverse.each do |m| %>
@@ -6,14 +6,14 @@
     <% end %>
   </div>
 </div>
-<div class="<%= color %>_block_footer">
+<div class="<%= color %>_block_footer gallery">
   <div class="block">
     <div class="link">
       <%= link_to 'Show & Edit', edit_gallery_path(gallery) %> |
-      <%= button_to "Delete", gallery_path(gallery), :confirm => "Are you sure?", :method => :delete %>
+      <%= button_to "Delete", gallery_path(gallery), :confirm => "Are you sure?", :method => :delete, :class => "button_to" %>
     </div>
-  </div>
-  <div class="keywords">
-    <%= format_keywords(gallery.keywords) %>
+    <div class="keywords">
+      <%= format_keywords(gallery.keywords) %>
+    </div>
   </div>
 </div>

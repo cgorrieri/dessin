@@ -1,0 +1,8 @@
+div.gallery div.link {
+    float:left;
+    width:auto;
+}
+div.gallery div.keywords {
+    float:right;
+    text-align:right;
+}
