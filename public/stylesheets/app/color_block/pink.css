@@ -16,6 +16,11 @@ div.pink_block_footer a
 {
     color:#ffffff;
 }
+div.pink_block_footer form.button_to input.button_to
+{
+    color:#ffffff;
+    text-decoration:underline !important;
+}
 
 div.pink_block_without_corner div.title,
 div.pink_block div.title

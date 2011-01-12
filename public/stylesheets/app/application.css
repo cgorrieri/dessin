@@ -4,6 +4,7 @@ body
     margin:0px;
     color:#ffffff;
     font-family:Arial, Tahoma, sans-serif;
+    font-size:16px;
 }
 
 #application
@@ -36,4 +37,19 @@ body
 div.field_with_errors
 {
     display:inline-block;
+}
+
+form.button_to {
+    display:inline;
+}
+form.button_to div {
+    display:inline;
+}
+form.button_to input.button_to {
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+    font-family:Arial, Tahoma, sans-serif;
+    padding:0px;
 }

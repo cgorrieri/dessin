@@ -16,6 +16,11 @@ div.white_block_footer a
 {
     color:#007471;
 }
+div.white_block_footer form.button_to input.button_to
+{
+    color:#007471;
+    text-decoration:underline !important;
+}
 
 div.white_block_without_corner div.title,
 div.white_block div.title
