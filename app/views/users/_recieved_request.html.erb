@@ -1,0 +1,14 @@
+<div class="recieved_request_item">
+  <table width="100%">
+    <tr height="20px">
+      <td rowspan="3" width="130px"><%= image_tag recieved_request.sender.avatar.url(:thumb), :width => 100 %></td>
+      <td><%= link_to recieved_request.sender.pseudo, recieved_request.sender %></td>
+    </tr>
+    <tr height="20px">
+      <td><%= recieved_request.message %></td>
+    </tr>
+    <tr height="20px">
+      <td><%= link_to "accept", add_friend_user_path(:id => recieved_request.sender.id) %> | <%= link_to "refuse", remove_friend_request_user_path(:id => recieved_request.sender.id) %></td>
+    </tr>
+  </table>
+</div>

@@ -1,10 +1,8 @@
-my request<br/>
-<% current_user.sender_friends_requests.each do |s| %>
-  to <%= s.reciever.pseudo %> <%= link_to "delete", remove_friend_request_user_path(:id => s.id) %><br/>
-<% end %>
-<br/>
-<br/>
-recieved request<br/>
-<% current_user.reciever_friends_requests.each do |r| %>
-  from <%= r.sender.pseudo %> <%= link_to "accept", add_friend_user_path(:id => r.sender.id) %> | <%= link_to "refuse", remove_friend_request_user_path(:id => r.id) %><br/>
-<% end %>
+<div class="blue_block_without_corner">
+  <div class="title">requests</div>
+  <div class="content">
+    <div class="list">
+      <%= render :partial => "recieved_request", :collection => current_user.reciever_friends_requests, :spacer_template => 'shared/application/list_spacer' %>
+    </div>
+  </div>
+</div>
