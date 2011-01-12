@@ -1,60 +1,60 @@
-#create_gallery label
+#form_gallery label
 {
     display:inline-block;
 }
 
 
-#create_gallery input[type="text"]
+#form_gallery input[type="text"]
 {
     width:300px;
     margin:0px
 }
 
-#create_gallery select
+#form_gallery select
 {
     width:200px;
     height:20px;
 }
 
-#create_gallery textarea
+#form_gallery textarea
 {
     height:50px;
     width:100%;
     margin:0px;
 }
 
-#create_gallery div.name,
-#create_gallery div.keywords
+#form_gallery div.name,
+#form_gallery div.keywords
 {
     margin-right:30px;
     margin-bottom:10px;
 }
-#create_gallery div.keywords > label
+#form_gallery div.keywords > label
 {
     display:block;
     float:left;
 }
-#create_gallery div.keywords .keywords_list
+#form_gallery div.keywords .keywords_list
 {
     float:right;
     width:560px;
 }
-#create_gallery div.keywords .keywords_list div.keyword
+#form_gallery div.keywords .keywords_list div.keyword
 {
     float:left;
 }
-#create_gallery div.keywords .keywords_list div.keyword label
+#form_gallery div.keywords .keywords_list div.keyword label
 {
     min-width:inherit;
     margin-right:20px;
 }
 
 
-#create_gallery div.description
+#form_gallery div.description
 {
     
 }
-#create_gallery div.description label
+#form_gallery div.description label
 {
     vertical-align:top;
 }
