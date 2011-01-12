@@ -1,4 +1,4 @@
-<div class="<%= friend.sex == "NC" ? "white" : friend.sex == "H" ? "blue" : "pink" %>_block_without_corner">
+<div class="<%= friend.gender == "nc" ? "white" : friend.gender == "m" ? "blue" : "pink" %>_block_without_corner">
   <div class="title"><%= friend.pseudo %></div>
   <div class="content">
       <%= image_tag friend.avatar.url(:thumb), :width => "80px" %>
