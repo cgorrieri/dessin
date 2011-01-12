@@ -72,3 +72,25 @@ div.pink_block_footer div.block
     border-right:none;
     color:#ffffff;
 }
+
+div.pink_block_without_corner div.list,
+div.pink_block div.list
+{
+    background:#ffffff;
+    border:1px solid #69003b;
+    padding: 5px;
+    color:#e40583;
+}
+
+div.pink_block_without_corner div.list a,
+div.pink_block div.list a
+{
+    color:#69003b;
+}
+
+div.pink_block_without_corner div.list_spacer,
+div.pink_block div.list_spacer
+{
+    height:1px;
+    background:#e40583;
+}

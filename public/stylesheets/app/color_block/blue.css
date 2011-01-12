@@ -72,3 +72,25 @@ div.blue_block_footer div.block
     border-right:none;
     color:#ffffff;
 }
+
+div.blue_block_without_corner div.list,
+div.blue_block div.list
+{
+    background:#ffffff;
+    border:1px solid #005250;
+    padding: 5px;
+    color:#4bb1af;
+}
+
+div.blue_block_without_corner div.list a,
+div.blue_block div.list a
+{
+    color:#007471;
+}
+
+div.blue_block_without_corner div.list_spacer,
+div.blue_block div.list_spacer
+{
+    height:1px;
+    background:#4bb1af;
+}
