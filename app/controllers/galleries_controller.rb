@@ -39,7 +39,7 @@ class GalleriesController < ApplicationController
   def create
     # params[:keywords] => hash {"keyword" => "keyword", ...}
     @gallery = Gallery.new(params[:gallery])
-    @gallery.keywords = keywords_string(params[:keywords])
+    @gallery.keywords = keywords_string(params[:keywords]) if params[:keywords]
     if @gallery.valid?
       @gallery.user_id = current_user.id
       if @gallery.save
