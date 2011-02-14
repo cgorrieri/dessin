@@ -1,3 +1,5 @@
+<h1 class="content_title">Welcome</h1>
+
 <div class="white_block_without_corner">
   <div class="title">Last drawings</div>
   <div class="content" id="home_images">
@@ -6,5 +8,9 @@
     <% end %>
   </div>
 </div>
+
+<% if @informations.count > 0 %>
+  <h2 class="content_title">News</h2>
+<% end %>
 
 <%= render :partial => 'informations/information', :collection => @informations %>

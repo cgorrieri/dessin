@@ -1,3 +1,5 @@
+<h1 class="content_title">Members</h1>
+
 <%= render :partial => 'search', :locals => {:search => @search} %>
 
 <%= render :collection => @users, :partial => "user", :locals => {:color => cycle("blue", "pink", "white")} %>

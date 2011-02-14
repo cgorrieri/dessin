@@ -1,3 +1,5 @@
+<h1 class="content_title">My recieved messages</h1>
+
 <% @messages_recieved.each do |message| %>
   From <%= message.sender.pseudo %><br/>
   at <%= message.created_at %><br/>

@@ -1,5 +1,6 @@
 <h1 class="content_title"><%= @gallery.name.capitalize! %> by <%= link_to @gallery.user.pseudo, @gallery.user %></h1>
-  <div class="white_block_without_corner">
+
+<div class="white_block_without_corner">
   <div class="title">Informations</div>
   <div class="content">
     <%= @gallery.description.size > 0 ? @gallery.description : "Pas de description" %>

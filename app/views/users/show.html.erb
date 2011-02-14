@@ -1,5 +1,7 @@
+<h1 class="content_title"><%= @user.pseudo %></h1>
+
 <div class="blue_block">
-  <div class="title"><%= @user.pseudo %></div>
+  <div class="title">Informations</div>
   <div class="content">
       <p><%= image_tag @user.avatar.url(:thumb) %></p>
       <%#= years = Time.now.year - @user.birth_date.to_date.year %>
