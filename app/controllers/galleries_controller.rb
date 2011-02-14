@@ -24,6 +24,8 @@ class GalleriesController < ApplicationController
   def show
     @gallery = Gallery.find(params[:id])
     @drawings = @gallery.drawings.reverse
+    @galleries_comment = GalleriesComment.new
+    @comments = @gallery.comments
   end
 
   # GET /galleries/new
@@ -121,5 +123,18 @@ class GalleriesController < ApplicationController
 
   def keywords_string(keywords_hash = nil)
     keywords_hash.map { |key, value| key}.join(',')
+  end
+
+  def add_comment
+    @gallery = Gallery.find(params[:id])
+    if params[:galleries_comment]
+      comment = @gallery.comments.create(:from_user_id => current_user.id, :message => params[:galleries_comment][:message])
+      if comment.save
+        flash[:notice] = "Comment posted succesfully"
+      else
+        flash[:alert] = "An error has encoutered"
+      end
+    end
+    redirect_to @gallery
   end
 end

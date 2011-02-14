@@ -1,0 +1,13 @@
+<div class="blue_block_without_corner">
+  <div class="content">
+    <%= form_for(@galleries_comment, :url => {:controller => 'galleries', :action => 'add_comment'}, :html => {:class => "new_comment"}) do |f| %>
+      <div class="field">
+        <%= f.text_area :message %>
+      </div>
+      <div class="submit">
+        <%= f.submit "Post !" %>
+      </div>
+      <div id="clear_float"></div>
+    <% end %>
+  </div>
+</div>

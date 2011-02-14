@@ -9,9 +9,11 @@ Dessin::Application.routes.draw do
   resources :galleries,
     :path => "galerie" do
     resources :medias
+    resources :galleries_comment
     member do
       post :add_media
       get :remove_media
+      post :add_comment
     end
   end
 

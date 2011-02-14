@@ -1,0 +1,18 @@
+form.new_comment
+{
+
+}
+
+form.new_comment textarea
+{
+    margin:0px;
+    width:735px;
+    height:100px;
+}
+
+form.new_comment div.submit
+{
+    float:right;
+    margin-top:10px;
+}
+

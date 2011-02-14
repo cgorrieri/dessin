@@ -1,5 +1,6 @@
-<div class="white_block_without_corner">
-  <div class="title"><%= @gallery.name %> by <%= link_to @gallery.user.pseudo, @gallery.user %></div>
+<h1 class="content_title"><%= @gallery.name.capitalize! %> by <%= link_to @gallery.user.pseudo, @gallery.user %></h1>
+  <div class="white_block_without_corner">
+  <div class="title">Informations</div>
   <div class="content">
     <%= @gallery.description.size > 0 ? @gallery.description : "Pas de description" %>
   </div>
@@ -12,3 +13,12 @@
 <% end %>
 
 <div id="clear_float"></div>
+<% if user_signed_in? %>
+  <h2 class="content_title">Post Comment</h2>
+
+  <%= render :partial => 'comment_form' %>
+<% end %>
+
+<h2 class="content_title">Comments List</h2>
+
+<%= render :partial => 'comment', :collection => @comments %>

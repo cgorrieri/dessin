@@ -1,6 +1,7 @@
 class Gallery < ActiveRecord::Base
   belongs_to :user
   has_many :drawings, :as => :media_container, :class_name => 'Media', :dependent => :destroy
+  has_many :comments, :foreign_key => 'to_gallery_id', :class_name => 'GalleriesComment'
 
   MIN_KEYWORDS = 1
   MAX_KEYWORDS = 4
