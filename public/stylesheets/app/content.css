@@ -7,3 +7,20 @@
 {
     padding:25px;
 }
+
+h1.content_title
+{
+    border-bottom: 3px solid #ffffff;
+    margin-top:0px;
+}
+
+h1.content_title a
+{
+    color: #ffffff;
+    font-style: italic;
+}
+
+h2.content_title
+{
+    border-bottom: 2px solid #ffffff;
+}
