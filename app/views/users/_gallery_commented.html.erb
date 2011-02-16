@@ -1,0 +1,14 @@
+<div class="gallery_commented_item">
+  <table width="100%">
+    <tr height="20px">
+      <td rowspan="3" width="130px"><%= image_tag gallery_commented.drawings.last.url(:thumb), :width => 100 %></td>
+      <td><%= link_to gallery_commented.name, gallery_commented %></td>
+    </tr>
+    <tr height="20px">
+      <td><%= gallery_commented.comments.unsee.count %> message(s) not see</td>
+    </tr>
+    <tr height="20px">
+      <td><%= link_to "see", gallery_commented, :anchor => "comment_#{gallery_commented.comments.unsee.first.id}" %></td>
+    </tr>
+  </table>
+</div>

@@ -171,4 +171,25 @@ class UsersController < ApplicationController
     end
     redirect_to :messages_recieved_user
   end
+
+  def galleries_commented
+    @galleries_commented = []
+    current_user.galleries.each do |gallery|
+      @galleries_commented.push(gallery) if gallery.comments.unsee.count > 0
+    end
+  end
+
+  def remove_gallery_comment
+    @gallery_comment = GalleriesComment.find(params[:id])
+    if current_user == @gallery_comment.from_user || current_user == @gallery_comment.to_gallery.user
+      if @gallery_comment.destroy
+        flash[:notice] = "commentaire supprimé avec succès"
+      else
+        flash[:alert] = "erreur"
+      end
+    else
+      flash[:alert] = "Vous n'avez pas le droits de supprimer ce message"
+    end
+    redirect_to @gallery_comment.to_gallery, :anchor => "comments"
+  end
 end

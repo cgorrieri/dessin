@@ -1,0 +1,10 @@
+<h1 class="content_title">Commments posted on my galleries</h1>
+
+<div class="blue_block_without_corner">
+  <div class="title">galleries</div>
+  <div class="content">
+    <div class="list">
+      <%= render :partial => "gallery_commented", :collection => @galleries_commented, :spacer_template => 'shared/application/list_spacer' %>
+    </div>
+  </div>
+</div>

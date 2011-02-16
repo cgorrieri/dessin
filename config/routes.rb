@@ -42,6 +42,8 @@ Dessin::Application.routes.draw do
   match '/compte/envoyer-un-message/:id' => 'users#send_message', :as => :send_message_user
   match '/compte/supprimer-message/:id' => 'users#remove_message', :as => :remove_message_user
   match '/compte/mes-messages' => 'users#messages_recieved', :as => :messages_recieved_user
+  match '/compte/les-nouveau-commentaires' => 'users#galleries_commented', :as => :galleries_commented_user
+  match '/compte/supprimer-commentaire/:id' => 'users#remove_gallery_comment', :as => :remove_gallery_comment_user
   
   root :to => "home#index"
 

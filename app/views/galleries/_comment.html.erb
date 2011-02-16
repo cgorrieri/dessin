@@ -1,8 +1,17 @@
-<div class="<%= cycle("pink", "white", "blue") %>_block_without_corner">
+<% color = cycle("pink", "white", "blue") %>
+<div class="<%= color %>_block" name="comment_<%= comment.id %>">
   <div class="title">
     <%= comment.from_user.pseudo %>
   </div>
   <div class="content">
     <%= comment.message %>
+  </div>
+</div>
+<div class="<%= color %>_block_footer">
+  <div class="block">
+    <%= link_to "signaler" %>
+    <% if current_user == comment.from_user || current_user == comment.to_gallery.user %>
+      | <%= link_to "supprimer", remove_gallery_comment_user_path(comment) %>
+    <% end %>
   </div>
 </div>
