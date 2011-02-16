@@ -4,6 +4,7 @@ class CreateGalleriesComments < ActiveRecord::Migration
       t.references :from_user
       t.references :to_gallery
       t.text :message
+      t.integer :see, :default => 0
 
       t.timestamps
     end
