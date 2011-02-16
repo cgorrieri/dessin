@@ -1,4 +1,17 @@
 <div id="menu_left">
+  <% if current_user.role > 80 %>
+    <div class="pink_block_without_corner">
+      <div class="title">Administration</div>
+      <div class="content">
+        <ul>
+          <li><%= link_to "News", informations_path %></li>
+          <li><%= link_to "Signalement", "" %></li>
+          <li><%= link_to "Message", "" %></li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
   <div class="white_block_without_corner">
     <div class="title">Mon compte</div>
     <div class="content">
@@ -31,7 +44,7 @@
       </ul>
     </div>
   </div>
-  <div class="pink_block_without_corner">
+  <!-- <div class="pink_block_without_corner">
     <div class="title">Aide et Cours</div>
     <div class="content">
       <ul>
@@ -43,4 +56,5 @@
       </ul>
     </div>
   </div>
+  -->
 </div>
