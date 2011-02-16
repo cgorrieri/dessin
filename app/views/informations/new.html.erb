@@ -1,19 +1,24 @@
-<h1>New Information</h1>
+<h1 class="content_title">Add a News</h1>
 
-<%= form_for(@information,:url => {:action => "create", :controller => "informations"}) do |f| %>
-  <%= form_errors! @information %>
+<div class="blue_block_without_corner">
+  <div class="title">News Form</div>
+  <div class="content">
+    <%= form_for(@information,:url => {:action => "create", :controller => "informations"}) do |f| %>
+      <%= form_errors! @information %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+      <div class="field">
+        <%= f.label :title %><br />
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :content %><br />
+        <%= f.text_area :content %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
 
 <%= link_to 'Back', informations_path %>
