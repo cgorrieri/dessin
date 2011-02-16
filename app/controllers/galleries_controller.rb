@@ -25,7 +25,12 @@ class GalleriesController < ApplicationController
     @gallery = Gallery.find(params[:id])
     @drawings = @gallery.drawings.reverse
     @galleries_comment = GalleriesComment.new
-    @comments = @gallery.comments
+    @comments = @gallery.comments.reverse
+    if current_user == @gallery.user
+      @comments.each do |comment|
+        comment.update_attributes(:see => 1) if comment.see == 0
+      end
+    end
   end
 
   # GET /galleries/new
